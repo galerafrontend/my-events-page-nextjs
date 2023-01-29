@@ -1,4 +1,4 @@
-const AllEvents = () => {
+const AllEventsPage = () => {
   return (
     <div>
       <h1>AllEvents</h1>
@@ -6,4 +6,4 @@ const AllEvents = () => {
   );
 };
 
-export default AllEvents;
+export default AllEventsPage;

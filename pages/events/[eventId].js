@@ -1,4 +1,4 @@
-const EventDetail = () => {
+const EventDetailPage = () => {
   return (
     <div>
       <h1>Event Detail</h1>
@@ -6,4 +6,4 @@ const EventDetail = () => {
   );
 };
 
-export default EventDetail;
+export default EventDetailPage;
