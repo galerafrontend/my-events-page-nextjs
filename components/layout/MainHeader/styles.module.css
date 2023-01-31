@@ -1,0 +1,56 @@
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 1rem 10%;
+  height: 5rem;
+  background-color: #202020;
+}
+
+.logo {
+  font-size: 1.5rem;
+  color: white;
+  font-family: "Fira", sans-serif;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #94fdfd;
+  transition: 0.5s;
+}
+
+.logo a {
+  text-decoration: none;
+  color: #94fdfd;
+}
+
+.logo:hover {
+  opacity: 50%;
+}
+
+.navigation a {
+  text-decoration: none;
+  color: #74dacc;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.navigation a:hover {
+  opacity: 50%;
+  border-bottom: 1px solid #74dacc;
+}
+
+.navigation a:focus {
+  font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  .logo {
+    font-size: 2.5rem;
+  }
+
+  .navigation a {
+    font-size: 1.5rem;
+  }
+}
