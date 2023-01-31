@@ -1,4 +1,4 @@
-import EventsList from "../components/events/EventsList";
+import EventsList from "../components/events/EventsList/EventsList";
 import { getFeaturedEvents } from "../dummy-data";
 
 const HomePage = () => {
