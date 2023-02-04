@@ -11,28 +11,34 @@ const EventItem = ({ id, title, image, date, location }) => {
     year: "numeric",
   });
 
+  const addressText = location.replace(", ", "\n");
+
   const exploreLink = `/events/${id}`;
 
   return (
     <li className={classes.item}>
       <img src={"/" + image} alt={title} />
-      <div className={classes.content}>
-        <div>
-          <h2>{title}</h2>
+      <div className={classes.wrapper}>
+        <div className={classes.content}>
+          <div>
+            <h2>{title}</h2>
+          </div>
+          <div className={classes.date}>
+            <DateIcon />
+            <time>{formmatedDate}</time>
+          </div>
+          <div className={classes.address}>
+            <AddressIcon />
+            <address>{addressText}</address>
+          </div>
         </div>
-        <div className={classes.date}>
-          <DateIcon />
-          <time>{formmatedDate}</time>
+        <div className={classes.actions}>
+          <Button link={exploreLink}>
+            <span>
+              Explore Link <ArrowRightIcon />
+            </span>
+          </Button>
         </div>
-        <div className={classes.address}>
-          <AddressIcon />
-          <address>{location}</address>
-        </div>
-      </div>
-      <div className={classes.actions}>
-        <Button link={exploreLink}>
-          <span>Explore Link <ArrowRightIcon /></span>
-        </Button>
       </div>
     </li>
   );
