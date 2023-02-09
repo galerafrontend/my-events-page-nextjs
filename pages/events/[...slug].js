@@ -44,7 +44,14 @@ const FilteredEventsPage = () => {
   });
 
   if (!filteredEvents || filteredEvents.length === 0) {
-    return <p>No events found for the chosen filter!</p>;
+    return (
+      <>
+        <div className="center">
+          <ErrorAlert>No events found for the chosen filter!</ErrorAlert>
+          <Button link="/events">Back to all events</Button>
+        </div>
+      </>
+    );
   }
 
   const date = new Date(numberYear, numberMonth - 1);
