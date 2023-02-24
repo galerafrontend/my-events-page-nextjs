@@ -3,7 +3,7 @@ import EventLogistics from "../../components/eventDetail/EventLogistics/EventLog
 import EventSummary from "../../components/eventDetail/EventSummary/EventSummary";
 import Button from "../../components/ui/Button/Button";
 import ErrorAlert from "../../components/ui/ErrorAlert/ErrorAlert";
-import { getEventById, getAllEvents } from "../../helpers/apiUtil";
+import { getEventById, getFeaturedEvents } from "../../helpers/apiUtil";
 
 const EventDetailPage = ({ selectedEvent }) => {
   const event = selectedEvent;
@@ -46,7 +46,7 @@ export const getStaticProps = async (context) => {
 };
 
 export const getStaticPaths = async () => {
-  const events = await getAllEvents();
+  const events = await getFeaturedEvents();
 
   const paths = events.map((event) => ({
     params: {
@@ -56,7 +56,7 @@ export const getStaticPaths = async () => {
 
   return {
     paths: paths,
-    fallback: false,
+    fallback: "blocking",
   };
 };
 
