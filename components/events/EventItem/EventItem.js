@@ -3,6 +3,7 @@ import ArrowRightIcon from "../../icons/arrowRightIcon";
 import DateIcon from "../../icons/dateIcon";
 import Button from "../../ui/Button/Button";
 import classes from "./styles.module.css";
+import Image from "next/image";
 
 const EventItem = ({ id, title, image, date, location }) => {
   const formmatedDate = new Date(date).toLocaleDateString("en-Us", {
@@ -17,7 +18,7 @@ const EventItem = ({ id, title, image, date, location }) => {
 
   return (
     <li className={classes.item}>
-      <img src={"/" + image} alt={title} />
+      <Image src={"/" + image} alt={title} width={500} height={500} />
       <div className={classes.wrapper}>
         <div className={classes.content}>
           <div>
