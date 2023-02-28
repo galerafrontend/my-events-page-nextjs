@@ -4,6 +4,7 @@ import EventSummary from "../../components/eventDetail/EventSummary/EventSummary
 import Button from "../../components/ui/Button/Button";
 import ErrorAlert from "../../components/ui/ErrorAlert/ErrorAlert";
 import { getEventById, getFeaturedEvents } from "../../helpers/apiUtil";
+import Head from "next/head";
 
 const EventDetailPage = ({ selectedEvent }) => {
   const event = selectedEvent;
@@ -21,6 +22,10 @@ const EventDetailPage = ({ selectedEvent }) => {
 
   return (
     <>
+      <Head>
+        <title>{event.title}</title>
+        <meta name="description" content={event.description} />
+      </Head>
       <EventSummary title={event.title} />
       <EventLogistics
         date={event.date}
