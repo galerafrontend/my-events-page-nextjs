@@ -5,6 +5,7 @@ import Button from "../../components/ui/Button/Button";
 import ErrorAlert from "../../components/ui/ErrorAlert/ErrorAlert";
 import { getEventById, getFeaturedEvents } from "../../helpers/apiUtil";
 import Head from "next/head";
+import Comments from "../../components/input/Comments/Comments";
 
 const EventDetailPage = ({ selectedEvent }) => {
   const event = selectedEvent;
@@ -34,6 +35,7 @@ const EventDetailPage = ({ selectedEvent }) => {
         imageAlt={event.title}
       />
       <EventContent>{event.description}</EventContent>
+      <Comments eventId={event.id} />
     </>
   );
 };
