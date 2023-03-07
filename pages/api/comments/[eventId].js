@@ -43,10 +43,9 @@ const handler = async (req, res) => {
       .sort({ _id: -1 })
       .toArray();
 
-    client.close();
-
     res.status(200).json({ comments: documents });
   }
+  client.close();
 };
 
 export default handler;
