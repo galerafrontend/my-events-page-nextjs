@@ -4,17 +4,20 @@ import ResultsTitle from "../../components/events/ResultsTitle/ResultsTitle";
 import ErrorAlert from "../../components/ui/ErrorAlert/ErrorAlert";
 import Button from "../../components/ui/Button/Button";
 import Head from "next/head";
+import { useLoading } from "../../useLoading";
 
 const FilteredEventsPage = ({ hasError, events, numberDate }) => {
+  const loader = useLoading();
   const pageHeadData = (
     <Head>
       <title>Filtered Events</title>
-      <meta
-        name="description"
-        content={`All events for ${numberDate.month}/${numberDate.year}.`}
-      />
+      <meta name="description" content={`All events for filtered date`} />
     </Head>
   );
+
+  if (loader) {
+    return <p className="center">Loading...</p>;
+  }
 
   if (hasError) {
     return (
