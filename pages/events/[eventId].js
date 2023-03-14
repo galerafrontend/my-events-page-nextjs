@@ -6,11 +6,17 @@ import ErrorAlert from "../../components/ui/ErrorAlert/ErrorAlert";
 import { getEventById, getFeaturedEvents } from "../../helpers/apiUtil";
 import Head from "next/head";
 import Comments from "../../components/input/Comments/Comments";
+import { useLoading } from "../../useLoading";
 
-const EventDetailPage = ({ selectedEvent }) => {
+const EventDetailPage = ({ selectedEvent, hasError }) => {
+  const loader = useLoading();
   const event = selectedEvent;
 
-  if (!event) {
+  if (loader) {
+    return <p className="center">Loading...</p>;
+  }
+
+  if (!event || hasError) {
     return (
       <>
         <div className="center">
@@ -45,10 +51,19 @@ export const getStaticProps = async (context) => {
 
   const event = await getEventById(eventId);
 
+  if (!event) {
+    return {
+      props: {
+        hasError: true,
+      },
+    };
+  }
+
   return {
     props: {
       selectedEvent: event,
     },
+    revalidate: 30,
   };
 };
 
